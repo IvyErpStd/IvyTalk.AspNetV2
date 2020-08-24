@@ -42,14 +42,14 @@ namespace IvyTalk.AspNet
         /// </summary>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException">匹配多个 Action</exception>
-        public ActionDescriptor FindAction(ControllerContext context)
+        private ActionDescriptor FindAction(ControllerContext context)
         {
             if (context is null)
             {
                 throw new ArgumentNullException(nameof(context));
             }
 
-            string actionName = context.RouteContext.RouteName;
+            string actionName = context.RouteData.RouteName;
             return FindActionMethod(context, actionName);
         }
 

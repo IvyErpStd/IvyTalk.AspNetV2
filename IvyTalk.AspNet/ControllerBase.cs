@@ -21,9 +21,9 @@ namespace IvyTalk.AspNet
             }
 
             HttpContext = context;
-            RouteContext routeContext = new RouteContext(context);
+            RouteData routeData = new RouteData(context);
             ControllerDescriptor descriptor = new ControllerDescriptor(this);
-            ControllerContext controllerContext = new ControllerContext(this, descriptor, context, routeContext);
+            ControllerContext controllerContext = new ControllerContext(this, descriptor, context, routeData);
             Execute(descriptor, controllerContext);
         }
 

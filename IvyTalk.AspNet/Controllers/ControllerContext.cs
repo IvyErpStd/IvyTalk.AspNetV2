@@ -23,7 +23,7 @@ namespace IvyTalk.AspNet.Controllers
         /// <summary>
         /// 路由信息
         /// </summary>
-        public RouteContext RouteContext { get; }
+        public RouteData RouteData { get; }
         
         /// <summary>
         /// Request 上下文
@@ -41,12 +41,12 @@ namespace IvyTalk.AspNet.Controllers
         public HttpConfiguration Configuration { get; }
 
         public ControllerContext(ControllerBase controller, ControllerDescriptor descriptor, HttpContext context,
-            RouteContext routeContext)
+            RouteData routeData)
         {
             Controller = controller ?? throw new ArgumentNullException(nameof(controller));
             Descriptor = descriptor ?? throw new ArgumentNullException(nameof(descriptor));
             Context = context ?? throw new ArgumentNullException(nameof(context));
-            RouteContext = routeContext ?? throw new ArgumentNullException(nameof(routeContext));
+            RouteData = routeData ?? throw new ArgumentNullException(nameof(routeData));
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Web;
 
 namespace IvyTalk.AspNet.Controllers
 {
-    public class RouteContext
+    public class RouteData
     {
         public HttpContext Context { get; }
 
@@ -24,7 +24,7 @@ namespace IvyTalk.AspNet.Controllers
             return target;
         }
 
-        public RouteContext(HttpContext context)
+        public RouteData(HttpContext context)
         {
             Context = context ?? throw new ArgumentNullException(nameof(context));
         }

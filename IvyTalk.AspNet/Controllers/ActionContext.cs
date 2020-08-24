@@ -34,6 +34,6 @@ namespace IvyTalk.AspNet.Controllers
         /// <summary>
         /// Method 参数
         /// </summary>
-        public IDictionary<string, object> Parameters { get; private set; }
+        public IDictionary<string, object> Parameters { get; protected set; }
     }
 }

@@ -14,6 +14,7 @@ namespace IvyTalk.AspNet.Controllers
 
         private Type _returnType;
         private ParameterInfo[] _parameterInfos;
+        private ParameterDescriptor[] _parameterDescriptors;
 
         /// <summary>
         /// 控制器描述器
@@ -39,5 +40,25 @@ namespace IvyTalk.AspNet.Controllers
         /// 目标 Action 的名称, 也就是 Method 的名称
         /// </summary>
         public string Name => MethodInfo.Name;
+
+        /// <summary>
+        /// 生成 Action 的 Parameter 解释器
+        /// </summary>
+        public ParameterDescriptor[] GetParameterDescriptors()
+        {
+            return _parameterDescriptors ?? (_parameterDescriptors = InnerGetParameterDescriptors());
+        }
+
+        private ParameterDescriptor[] InnerGetParameterDescriptors()
+        {
+            ParameterDescriptor[] descriptors = new ParameterDescriptor[ParameterInfos.Length];
+            for (int i = 0; i < ParameterInfos.Length; i++)
+            {
+                ParameterInfo parameter = ParameterInfos[i];
+                descriptors[i] = new ParameterDescriptor(this, parameter);
+            }
+
+            return descriptors;
+        }
     }
 }

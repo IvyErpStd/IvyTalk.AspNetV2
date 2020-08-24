@@ -32,38 +32,38 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    
     <Reference Include="System.Core" />
-    
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    
-    
     <Reference Include="Microsoft.CSharp" />
-    
     <Reference Include="System.Data" />
-    
     <Reference Include="System.Net.Http" />
-    
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\FormBodyAttribute.cs" />
+    <Compile Include="Attributes\FormUriAttribute.cs" />
+    <Compile Include="Attributes\ParameterBindingAttribute.cs" />
+    <Compile Include="Binding\DefaultActionValueBinder.cs" />
     <Compile Include="Controller.cs" />
     <Compile Include="ControllerBase.cs" />
+    <Compile Include="Controllers\ActionBinding.cs" />
     <Compile Include="Controllers\ActionContext.cs" />
     <Compile Include="Controllers\ActionDescriptor.cs" />
     <Compile Include="Controllers\ControllerContext.cs" />
     <Compile Include="Controllers\ControllerDescriptor.cs" />
     <Compile Include="Controllers\DefaultActionSelector.cs" />
-    <Compile Include="Controllers\RouteContext.cs" />
+    <Compile Include="Controllers\ParameterBinding.cs" />
+    <Compile Include="Controllers\ParameterBindingExtensions.cs" />
+    <Compile Include="Controllers\ParameterDescriptor.cs" />
+    <Compile Include="Controllers\RouteData.cs" />
     <Compile Include="HttpConfiguration.cs" />
     <Compile Include="Interfaces\IActionSelector.cs" />
+    <Compile Include="Interfaces\IActionValueBinder.cs" />
     <Compile Include="Interfaces\IController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Attributes" />
+    <Compile Include="Utilities\TypeHelper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
- </Project>
+</Project>

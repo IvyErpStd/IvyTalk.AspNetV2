@@ -35,12 +35,12 @@ namespace IvyTalk.AspNet.Controllers
         private static bool MatchAliasName(MethodInfo methodInfo, string actionName)
         {
             throw new NotImplementedException();
-            return false;
+            //return false;
         }
 
-        private static bool MatchActionName(MethodInfo methodInfo, string actionName)
+        private static bool MatchActionName(MethodInfo method, string actionName)
         {
-            return methodInfo.Name.Equals(actionName, StringComparison.OrdinalIgnoreCase);
+            return method.Name.Equals(actionName, StringComparison.OrdinalIgnoreCase);
         }
     }
 }
