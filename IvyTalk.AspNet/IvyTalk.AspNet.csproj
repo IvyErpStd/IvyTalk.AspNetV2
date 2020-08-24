@@ -34,6 +34,8 @@
     <Reference Include="System" />
     
     <Reference Include="System.Core" />
+    
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     
@@ -47,7 +49,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller.cs" />
+    <Compile Include="ControllerBase.cs" />
+    <Compile Include="Controllers\ActionContext.cs" />
+    <Compile Include="Controllers\ActionDescriptor.cs" />
+    <Compile Include="Controllers\ControllerContext.cs" />
+    <Compile Include="Controllers\ControllerDescriptor.cs" />
+    <Compile Include="Controllers\DefaultActionSelector.cs" />
+    <Compile Include="Controllers\RouteContext.cs" />
+    <Compile Include="HttpConfiguration.cs" />
+    <Compile Include="Interfaces\IActionSelector.cs" />
+    <Compile Include="Interfaces\IController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Attributes" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
  </Project>
