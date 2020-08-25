@@ -19,7 +19,7 @@ namespace IvyTalk.AspNet
             if (context.IsWebSocketRequestUpgrading)
             {
                 // 不支持 Websocket
-                throw new HttpException(200, "该框架不支持 Websocket.");
+                throw new HttpWrapperException(HttpStatusCode.OK, "该框架不支持 Websocket.");
             }
 
             HttpContext = context;
