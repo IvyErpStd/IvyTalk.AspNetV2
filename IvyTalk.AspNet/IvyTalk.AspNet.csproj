@@ -54,6 +54,7 @@
     <Compile Include="Controllers\ControllerContext.cs" />
     <Compile Include="Controllers\ControllerDescriptor.cs" />
     <Compile Include="Controllers\DefaultActionSelector.cs" />
+    <Compile Include="Controllers\FormatterParameterBinding.cs" />
     <Compile Include="Controllers\ParameterBinding.cs" />
     <Compile Include="Controllers\ParameterBindingExtensions.cs" />
     <Compile Include="Controllers\ParameterDescriptor.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Interfaces\IActionValueBinder.cs" />
     <Compile Include="Interfaces\IController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\HttpContextExtensions.cs" />
     <Compile Include="Utilities\TypeHelper.cs" />
   </ItemGroup>
   <ItemGroup>

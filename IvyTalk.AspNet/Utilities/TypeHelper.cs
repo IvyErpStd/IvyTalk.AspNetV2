@@ -26,7 +26,7 @@ namespace IvyTalk.AspNet.Utilities
 
             return IsSimpleType(type);
         }
-        
+
         /// <summary>
         /// 常见类型
         /// </summary>
@@ -40,10 +40,25 @@ namespace IvyTalk.AspNet.Utilities
                    type == typeof(DateTimeOffset) ||
                    type == typeof(TimeSpan);
         }
-        
+
         public static bool HasStringConverter(Type type)
         {
             return TypeDescriptor.GetConverter(type).CanConvertFrom(typeof(string));
+        }
+
+        public static object GetDefaultValueForType(Type type)
+        {
+            if (type == null)
+            {
+                throw new ArgumentNullException(nameof(type));
+            }
+
+            if (type.IsValueType)
+            {
+                return Activator.CreateInstance(type);
+            }
+
+            return null;
         }
     }
 }

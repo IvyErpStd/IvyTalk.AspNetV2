@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web;
 
 namespace IvyTalk.AspNet.Controllers
 {
@@ -29,7 +30,7 @@ namespace IvyTalk.AspNet.Controllers
         /// </summary>
         public virtual string ErrorMessage { get; }
 
-        public abstract void ExecuteBinding();
+        public abstract void ExecuteBinding(ActionContext context);
         
         protected object GetValue(ActionContext context)
         {

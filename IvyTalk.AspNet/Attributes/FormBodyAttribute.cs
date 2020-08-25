@@ -1,4 +1,7 @@
-﻿using IvyTalk.AspNet.Controllers;
+﻿using System;
+using System.Collections.Generic;
+using IvyTalk.AspNet.Controllers;
+using IvyTalk.AspNet.Formatting;
 
 namespace IvyTalk.AspNet.Attributes
 {
@@ -6,8 +9,14 @@ namespace IvyTalk.AspNet.Attributes
     {
         public override ParameterBinding GetBinding(ParameterDescriptor descriptor)
         {
-            // TODO
-            throw new System.NotImplementedException();
+            if (descriptor is null)
+            {
+                throw new ArgumentNullException(nameof(descriptor));
+            }
+
+            IEnumerable<MediaTypeFormatter> formatters = descriptor.Configuration.MediaTypeFormatters;
+            
+            
         }
     }
 }

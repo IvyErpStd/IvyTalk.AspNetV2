@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using IvyTalk.AspNet.Attributes;
+using IvyTalk.AspNet.Utilities;
 
 namespace IvyTalk.AspNet.Controllers
 {
@@ -39,7 +40,7 @@ namespace IvyTalk.AspNet.Controllers
         /// <summary>
         /// 默认值
         /// </summary>
-        public object DefaultValue => null;
+        public object DefaultValue => TypeHelper.GetDefaultValueForType(ParameterType);
 
         /// <summary>
         /// 参数名称
