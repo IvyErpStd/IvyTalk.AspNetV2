@@ -13,7 +13,13 @@ namespace IvyTalk.AspNet.Controllers
         {
             ActionDescriptor = descriptor ?? throw new ArgumentNullException(nameof(descriptor));
             ParameterInfo = parameterInfo ?? throw new ArgumentNullException(nameof(parameterInfo));
+            Configuration = descriptor.Configuration;
         }
+        
+        /// <summary>
+        /// 配置
+        /// </summary>
+        public HttpConfiguration Configuration { get; }
 
         /// <summary>
         /// Action 解释器

@@ -2,7 +2,7 @@
 {
     public class ActionBinding
     {
-        public ActionBinding(ActionContext context, ParameterDescriptor[] parameter)
+        public ActionBinding(ActionDescriptor actionDescriptor, ParameterBinding[] parameter)
         {
             
         }

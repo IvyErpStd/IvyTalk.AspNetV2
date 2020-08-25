@@ -65,5 +65,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\TypeHelper.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Binding\Binder" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IvyTalk.AspNet.Formatting\IvyTalk.AspNet.Formatting.csproj">
+      <Project>{6fce489c-44e9-4a22-800f-88e67904a3c7}</Project>
+      <Name>IvyTalk.AspNet.Formatting</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

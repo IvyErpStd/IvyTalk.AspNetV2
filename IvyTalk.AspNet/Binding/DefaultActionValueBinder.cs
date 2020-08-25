@@ -8,17 +8,17 @@ namespace IvyTalk.AspNet.Binding
 {
     public class DefaultActionValueBinder : IActionValueBinder
     {
-        public ActionBinding GetBinding(ActionContext context)
+        public ActionBinding GetBinding(ActionDescriptor descriptor)
         {
-            if (context is null)
+            if (descriptor is null)
             {
-                throw new ArgumentNullException(nameof(context));
+                throw new ArgumentNullException(nameof(descriptor));
             }
 
-            ParameterDescriptor[] descriptors = context.Descriptor.GetParameterDescriptors();
+            ParameterDescriptor[] descriptors = descriptor.GetParameterDescriptors();
             ParameterBinding[] bindings = Array.ConvertAll(descriptors, GetParameterBinding);
             
-            return new ActionBinding(context, descriptors);
+            return new ActionBinding(descriptor, bindings);
         }
 
         private ParameterBinding GetParameterBinding(ParameterDescriptor descriptor)

@@ -18,7 +18,7 @@ namespace IvyTalk.AspNet.Controllers
             {
                 // 更换了 Action 解释器, 参数清空
                 _actionDescriptor = value ?? throw new ArgumentNullException(nameof(value));
-                Parameters = new Dictionary<string, object>(_actionDescriptor.ParameterInfos.Length);
+                ActionParameters = new Dictionary<string, object>(_actionDescriptor.ParameterInfos.Length);
             }
         }
 
@@ -34,6 +34,6 @@ namespace IvyTalk.AspNet.Controllers
         /// <summary>
         /// Method 参数
         /// </summary>
-        public IDictionary<string, object> Parameters { get; protected set; }
+        public IDictionary<string, object> ActionParameters { get; protected set; }
     }
 }

@@ -4,6 +4,6 @@ namespace IvyTalk.AspNet.Interfaces
 {
     public interface IActionValueBinder
     {
-        ActionBinding GetBinding(ActionContext descriptor);
+        ActionBinding GetBinding(ActionDescriptor descriptor);
     }
 }

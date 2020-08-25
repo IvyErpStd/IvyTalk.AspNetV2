@@ -7,12 +7,18 @@ namespace IvyTalk.AspNet.Controllers
 {
     public class ControllerDescriptor
     {
-        public ControllerDescriptor(ControllerBase controller)
+        public ControllerDescriptor(ControllerBase controller, HttpConfiguration configuration)
         {
-            Controller = controller;
+            Controller = controller ?? throw new ArgumentNullException(nameof(controller));
+            Configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
         }
 
         private Type _type;
+
+        /// <summary>
+        /// 配置
+        /// </summary>
+        public HttpConfiguration Configuration { get; }
 
         /// <summary>
         /// 控制器

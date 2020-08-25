@@ -8,10 +8,12 @@ namespace IvyTalk.AspNet
 {
     public abstract class ControllerBase : IController, IHttpHandler, IRequiresSessionState
     {
+        private static readonly HttpConfiguration Configuration = new HttpConfiguration();
+
         protected virtual bool IsReusable => true;
 
         protected HttpContext HttpContext { get; private set; }
-        
+
         private void ProcessRequest(HttpContext context)
         {
             if (context.IsWebSocketRequestUpgrading)
@@ -22,7 +24,7 @@ namespace IvyTalk.AspNet
 
             HttpContext = context;
             RouteData routeData = new RouteData(context);
-            ControllerDescriptor descriptor = new ControllerDescriptor(this);
+            ControllerDescriptor descriptor = new ControllerDescriptor(this, Configuration);
             ControllerContext controllerContext = new ControllerContext(this, descriptor, context, routeData);
             Execute(descriptor, controllerContext);
         }
