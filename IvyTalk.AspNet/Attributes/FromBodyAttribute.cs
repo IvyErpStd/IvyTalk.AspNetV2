@@ -5,7 +5,7 @@ using IvyTalk.AspNet.Formatting;
 
 namespace IvyTalk.AspNet.Attributes
 {
-    public class FormBodyAttribute: ParameterBindingAttribute
+    public class FromBodyAttribute: ParameterBindingAttribute
     {
         public override ParameterBinding GetBinding(ParameterDescriptor descriptor)
         {
@@ -15,8 +15,7 @@ namespace IvyTalk.AspNet.Attributes
             }
 
             IEnumerable<MediaTypeFormatter> formatters = descriptor.Configuration.MediaTypeFormatters;
-            
-            
+            return descriptor.BindWithFormatter(formatters);
         }
     }
 }

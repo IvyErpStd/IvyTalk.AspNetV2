@@ -36,10 +36,10 @@ namespace IvyTalk.AspNet.Binding
             Type type = descriptor.ParameterType;
             if (TypeHelper.CanConvertFromString(type))
             {
-                return descriptor.BindWithAttribute(new FormUriAttribute());
+                return descriptor.BindWithAttribute(new FromUriAttribute());
             }
             
-            return descriptor.BindWithAttribute(new FormBodyAttribute());
+            return descriptor.BindWithAttribute(new FromBodyAttribute());
         }
     }
 }

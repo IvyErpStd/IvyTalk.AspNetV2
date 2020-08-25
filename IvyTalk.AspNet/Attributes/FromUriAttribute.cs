@@ -2,7 +2,7 @@
 
 namespace IvyTalk.AspNet.Attributes
 {
-    public class FormUriAttribute : ParameterBindingAttribute
+    public class FromUriAttribute : ParameterBindingAttribute
     {
         public override ParameterBinding GetBinding(ParameterDescriptor descriptor)
         {
