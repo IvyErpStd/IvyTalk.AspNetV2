@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Web;
 
 namespace IvyTalk.AspNet.Controllers
@@ -18,7 +19,7 @@ namespace IvyTalk.AspNet.Controllers
             string target = Context?.Request.QueryString["t"];
             if (string.IsNullOrWhiteSpace(target))
             {
-                throw new HttpException(404, "目标路由不存在.");
+                throw new HttpWrapperException(HttpStatusCode.NotFound, "目标路由不存在.");
             }
 
             return target;

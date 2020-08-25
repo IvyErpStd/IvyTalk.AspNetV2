@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Net;
 using System.Net.Http.Headers;
 using System.Web;
 using IvyTalk.AspNet.Formatting;
@@ -37,7 +39,16 @@ namespace IvyTalk.AspNet.Controllers
             }
 
             HttpRequest request = context.ControllerContext.Request;
-            object value = BindingCore(request);
+            object value;
+
+            try
+            {
+                value = BindingCore(request);
+            }
+            catch (UnsupportedMediaTypeException exception)
+            {
+                throw new HttpWrapperException(HttpStatusCode.UnsupportedMediaType, "不被支持的媒体类型", exception);
+            }
 
             SetValue(context, value);
         }
@@ -54,15 +65,29 @@ namespace IvyTalk.AspNet.Controllers
             }
 
             // 未知 Media-Type
-            MediaTypeHeaderValue value = request.ContentTypeToMediaType();
-            if (value is null)
+            MediaTypeHeaderValue mediaType = request.ContentTypeToMediaType();
+            if (mediaType is null)
             {
                 return ParameterDescriptor.DefaultValue;
             }
-            //
-            // MediaTypeFormatter formatter =
-            //     ParameterDescriptor.Configuration.MediaTypeFormatters
-            //         .FindFormatter(ParameterDescriptor.ParameterType, value);
+
+            MediaTypeFormatter formatter =
+                new MediaTypeFormatterCollection(Formatters)
+                    .FindFormatter(ParameterDescriptor.ParameterType, mediaType);
+
+            if (formatter is null)
+            {
+                if (request.ContentLength == 0)
+                {
+                    return ParameterDescriptor.DefaultValue;
+                }
+
+                throw new UnsupportedMediaTypeException("未找到相应的序列化对象", mediaType);
+            }
+
+            Stream stream = request.InputStream;
+            object value = formatter.ReadFromStream(ParameterDescriptor.ParameterType, stream, request);
+            return value;
         }
     }
 }

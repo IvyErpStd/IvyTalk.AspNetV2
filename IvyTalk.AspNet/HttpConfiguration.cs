@@ -9,10 +9,14 @@ namespace IvyTalk.AspNet
     /// </summary>
     public class HttpConfiguration
     {
+        public HttpConfiguration()
+        {
+            MediaTypeFormatters = new MediaTypeFormatterCollection();
+        }
+
         /// <summary>
         /// 格式化器
         /// </summary>
         public MediaTypeFormatterCollection MediaTypeFormatters { get; }
-
     }
 }

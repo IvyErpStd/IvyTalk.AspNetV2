@@ -42,8 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attributes\FormBodyAttribute.cs" />
-    <Compile Include="Attributes\FormUriAttribute.cs" />
+    <Compile Include="Attributes\FromBodyAttribute.cs" />
+    <Compile Include="Attributes\FromUriAttribute.cs" />
     <Compile Include="Attributes\ParameterBindingAttribute.cs" />
     <Compile Include="Binding\DefaultActionValueBinder.cs" />
     <Compile Include="Controller.cs" />
@@ -60,6 +60,7 @@
     <Compile Include="Controllers\ParameterDescriptor.cs" />
     <Compile Include="Controllers\RouteData.cs" />
     <Compile Include="HttpConfiguration.cs" />
+    <Compile Include="HttpWrapperException.cs" />
     <Compile Include="Interfaces\IActionSelector.cs" />
     <Compile Include="Interfaces\IActionValueBinder.cs" />
     <Compile Include="Interfaces\IController.cs" />
