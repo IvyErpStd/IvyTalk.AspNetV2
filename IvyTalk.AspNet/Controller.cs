@@ -8,32 +8,36 @@ namespace IvyTalk.AspNet
 {
     public class Controller : ControllerBase
     {
+        private ControllerContext _controllerContext;
+        
         protected override void Execute(ControllerDescriptor descriptor, ControllerContext context)
         {
-            if (_initialized)
-            {
-                throw new InvalidOperationException("Controller 已被初始化!");
-            }
-
-            Initialize(context);
-            
             ActionDescriptor actionDescriptor = FindAction(context);
-            ActionContext.Descriptor = actionDescriptor;
+            ActionContext = new ActionContext
+            {
+                Descriptor = actionDescriptor
+            };
+            
+            Initialize(context);
         }
 
-        protected ActionContext ActionContext { get; } = new ActionContext();
-
+        protected ActionContext ActionContext { get; private set; }
+        
         protected ControllerContext ControllerContext
         {
-            get => ActionContext.ControllerContext;
-            set => ActionContext.ControllerContext = value ?? throw new ArgumentNullException(nameof(value));
+            get => _controllerContext;
+            set
+            {
+                _controllerContext = value ?? throw new ArgumentNullException(nameof(value));
+                if (ActionContext != null)
+                {
+                    ActionContext.ControllerContext = _controllerContext;
+                }
+            }
         }
-
-        private bool _initialized;
 
         protected virtual void Initialize(ControllerContext context)
         {
-            _initialized = true;
             ControllerContext = context;
         }
 

@@ -16,11 +16,13 @@ namespace IvyTalk.AspNet.Formatting
         protected MediaTypeFormatter()
         {
             SupportEncodings = new Collection<Encoding>();
+            SupportedMediaTypes = new Collection<MediaTypeHeaderValue>();
         }
 
         protected MediaTypeFormatter(MediaTypeFormatter mediaTypeFormatter)
         {
             SupportEncodings = mediaTypeFormatter.SupportEncodings;
+            SupportedMediaTypes = mediaTypeFormatter.SupportedMediaTypes;
         }
 
         /// <summary>
