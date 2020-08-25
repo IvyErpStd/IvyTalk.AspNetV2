@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IvyTalk.AspNet", "IvyTalk.A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IvyTalk.AspNet.Formatting", "IvyTalk.AspNet.Formatting\IvyTalk.AspNet.Formatting.csproj", "{6FCE489C-44E9-4A22-800F-88E67904A3C7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IvyTalk.AspNetFramework.Test", "IvyTalk.AspNetFramework.Test\IvyTalk.AspNetFramework.Test.csproj", "{6ED47D22-6398-43F1-AB14-D91EF14A6DE4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{6FCE489C-44E9-4A22-800F-88E67904A3C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FCE489C-44E9-4A22-800F-88E67904A3C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FCE489C-44E9-4A22-800F-88E67904A3C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6ED47D22-6398-43F1-AB14-D91EF14A6DE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ED47D22-6398-43F1-AB14-D91EF14A6DE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ED47D22-6398-43F1-AB14-D91EF14A6DE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ED47D22-6398-43F1-AB14-D91EF14A6DE4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
