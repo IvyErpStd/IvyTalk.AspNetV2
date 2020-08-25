@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using IvyTalk.AspNet.Attributes;
+using IvyTalk.AspNet.Binding;
 using IvyTalk.AspNet.Formatting;
 
 namespace IvyTalk.AspNet.Controllers

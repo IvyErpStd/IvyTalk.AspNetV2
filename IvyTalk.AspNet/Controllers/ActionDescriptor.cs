@@ -69,7 +69,7 @@ namespace IvyTalk.AspNet.Controllers
         }
 
         /// <summary>
-        /// 生成 Action 的 Parameter 解释器
+        /// 生成 Action 的 Parameters 解释器
         /// </summary>
         public ParameterDescriptor[] GetParameterDescriptors()
         {

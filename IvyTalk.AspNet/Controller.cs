@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Reflection;
 using IvyTalk.AspNet.Controllers;
 using IvyTalk.AspNet.Interfaces;
@@ -12,13 +13,19 @@ namespace IvyTalk.AspNet
         
         protected override void Execute(ControllerDescriptor descriptor, ControllerContext context)
         {
-            ActionDescriptor actionDescriptor = FindAction(context);
+            ActionDescriptor actionDescriptor =
+                FindAction(context) ?? 
+                throw new HttpWrapperException(HttpStatusCode.NotFound, "NotFound");
+       
             ActionContext = new ActionContext
             {
                 Descriptor = actionDescriptor
             };
             
             Initialize(context);
+
+            // TODO: Invoke
+            // actionDescriptor.ActionBinding.InvokeAction(ActionContext);
         }
 
         protected ActionContext ActionContext { get; private set; }

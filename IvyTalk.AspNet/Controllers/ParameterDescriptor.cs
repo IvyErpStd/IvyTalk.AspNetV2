@@ -78,13 +78,13 @@ namespace IvyTalk.AspNet.Controllers
              *  1.参数本身
              *  2.参数目标类型
              */
-            return ChooseAttribute((ParameterBindingAttribute[]) ParameterInfo.GetCustomAttributes()) ??
-                   ChooseAttribute((ParameterBindingAttribute[]) ParameterType.GetCustomAttributes());
+            return ChooseAttribute(ParameterInfo.GetCustomAttributes<ParameterBindingAttribute>().ToArray()) ??
+                   ChooseAttribute(ParameterType.GetCustomAttributes<ParameterBindingAttribute>().ToArray());
         }
 
-        private ParameterBindingAttribute ChooseAttribute(IList<ParameterBindingAttribute> attributes)
+        private ParameterBindingAttribute ChooseAttribute(ParameterBindingAttribute[] attributes)
         {
-            if (attributes.Count == 0)
+            if (!attributes?.Any() ?? true)
             {
                 return null;
             }

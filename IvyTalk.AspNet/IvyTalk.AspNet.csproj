@@ -44,8 +44,11 @@
   <ItemGroup>
     <Compile Include="Attributes\FromBodyAttribute.cs" />
     <Compile Include="Attributes\FromUriAttribute.cs" />
+    <Compile Include="Attributes\ModelBinderAttribute.cs" />
     <Compile Include="Attributes\ParameterBindingAttribute.cs" />
     <Compile Include="Binding\DefaultActionValueBinder.cs" />
+    <Compile Include="Binding\ErrorParameterBinding.cs" />
+    <Compile Include="Binding\FormatterParameterBinding.cs" />
     <Compile Include="Controller.cs" />
     <Compile Include="ControllerBase.cs" />
     <Compile Include="Controllers\ActionBinding.cs" />
@@ -54,7 +57,6 @@
     <Compile Include="Controllers\ControllerContext.cs" />
     <Compile Include="Controllers\ControllerDescriptor.cs" />
     <Compile Include="Controllers\DefaultActionSelector.cs" />
-    <Compile Include="Controllers\FormatterParameterBinding.cs" />
     <Compile Include="Controllers\ParameterBinding.cs" />
     <Compile Include="Controllers\ParameterBindingExtensions.cs" />
     <Compile Include="Controllers\ParameterDescriptor.cs" />

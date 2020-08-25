@@ -34,8 +34,8 @@ namespace IvyTalk.AspNet.Controllers
 
         private static bool MatchAliasName(MethodInfo methodInfo, string actionName)
         {
-            throw new NotImplementedException();
-            //return false;
+            // throw new NotImplementedException();
+            return false;
         }
 
         private static bool MatchActionName(MethodInfo method, string actionName)

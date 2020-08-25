@@ -4,10 +4,11 @@ using System.IO;
 using System.Net;
 using System.Net.Http.Headers;
 using System.Web;
+using IvyTalk.AspNet.Controllers;
 using IvyTalk.AspNet.Formatting;
 using IvyTalk.AspNet.Utilities;
 
-namespace IvyTalk.AspNet.Controllers
+namespace IvyTalk.AspNet.Binding
 {
     public class FormatterParameterBinding : ParameterBinding
     {
