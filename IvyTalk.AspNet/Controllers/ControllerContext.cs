@@ -38,7 +38,7 @@ namespace IvyTalk.AspNet.Controllers
         /// <summary>
         /// 配置项
         /// </summary>
-        public HttpConfiguration Configuration { get; }
+        public HttpConfiguration Configuration => Descriptor.Configuration;
 
         public ControllerContext(ControllerBase controller, ControllerDescriptor descriptor, HttpContext context,
             RouteData routeData)
