@@ -9,9 +9,9 @@ namespace IvyTalk.AspNet.Controllers
         {
         }
      
-        public override bool Execute(HttpResponse response, object result)
+        public override bool Execute(ActionContext context, object result)
         {
-            response.OutputStream.Flush();
+            context.ControllerContext.Response.OutputStream.Flush();
             return true;
         }
     }

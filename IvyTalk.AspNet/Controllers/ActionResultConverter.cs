@@ -13,11 +13,11 @@ namespace IvyTalk.AspNet.Controllers
         {
         }
         
-        public override bool Execute(HttpResponse response, object result)
+        public override bool Execute(ActionContext context, object result)
         {
             if (result is IActionResult actionResult)
             {
-                actionResult.Execute(response);
+                actionResult.Execute(context);
                 return true;
             }
 

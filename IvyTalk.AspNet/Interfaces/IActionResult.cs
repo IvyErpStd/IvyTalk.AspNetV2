@@ -1,4 +1,5 @@
 ﻿using System.Web;
+using IvyTalk.AspNet.Controllers;
 
 namespace IvyTalk.AspNet.Interfaces
 {
@@ -8,6 +9,6 @@ namespace IvyTalk.AspNet.Interfaces
     /// </summary>
     public interface IActionResult
     {
-        void Execute(HttpResponse response);
+        void Execute(ActionContext context);
     }
 }

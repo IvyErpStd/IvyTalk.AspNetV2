@@ -73,7 +73,8 @@ namespace IvyTalk.AspNet.Controllers
                 }
 
                 ActionBinding binding = ActionValueBinder.GetBinding(this);
-                return binding;
+                _actionBinding = binding;
+                return _actionBinding;
             }
         }
 

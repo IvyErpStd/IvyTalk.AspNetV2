@@ -2,25 +2,34 @@
 using System.Data;
 using System.Diagnostics;
 using IvyTalk.AspNet;
+using IvyTalk.AspNet.Interfaces;
 
 namespace IvyTalk.AspNetFramework.Test.Controller
 {
     public class TestApiController : ApiController
     {
-        public void DataTable(DataTable test)
+        public IActionResult ComplexType(string value1, int value2, decimal value3, Guid guid, DataTable dataTable)
         {
-            Debug.WriteLine(test);
+            Debug.WriteLine("value1={0}, value2={1}, value3={2}, guid={3}, dataTable={4}", value1, value2, value3,
+                guid.ToString(), dataTable);
+
+            return Json(new
+            {
+                value1 = value1,
+                value2 = value2,
+                value3 = value3,
+                guid = guid,
+                dataTable = dataTable,
+                dateTime = DateTime.Now
+            });
         }
 
-        public void NameValue(string value1, int value2, decimal value3, Guid guid)
+        public Guid OtherResult()
         {
-            Debug.WriteLine("value1={0}, value2={1}, value3={2}", value1, value2, value3);
+            return Guid.NewGuid();
         }
 
-        public void NameValueAndDataTable(string value1, int value2, decimal value3, Guid guid, DataTable dataTable)
-        {
-            Debug.WriteLine("value1={0}, value2={1}, value3={2}, guid={3}, dataTable={4}", value1, value2, value3, guid.ToString(), dataTable.Columns);
-        }
+
     }
 
     public sealed class SerializeClassTest

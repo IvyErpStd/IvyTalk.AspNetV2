@@ -18,7 +18,7 @@ namespace IvyTalk.AspNet.Controllers
             
             descriptor.ActionBinding.ExecuteBinding(ActionContext);
             object actionResult = descriptor.Execute(ActionContext, ActionContext.ActionParameters);
-            return converter.Execute(response, actionResult);
+            return converter.Execute(ActionContext, actionResult);
         }
     }
 }

@@ -31,6 +31,15 @@ namespace IvyTalk.AspNet
             }
         }
 
+        /// <summary>
+        /// 返回 JSON
+        /// </summary>
+        protected IActionResult Json<TSerializeClass>(TSerializeClass @class)
+            where TSerializeClass : class
+        {
+            return new JsonResult<TSerializeClass>(@class);
+        }
+
         private ActionInvoker ActionInvoker { get; set; }
 
         protected ActionContext ActionContext { get; private set; }

@@ -12,6 +12,6 @@ namespace IvyTalk.AspNet.Controllers
             ActionDescriptor = descriptor ?? throw new ArgumentNullException(nameof(descriptor));
         }
 
-        public abstract bool Execute(HttpResponse response, object result);
+        public abstract bool Execute(ActionContext context, object result);
     }
 }

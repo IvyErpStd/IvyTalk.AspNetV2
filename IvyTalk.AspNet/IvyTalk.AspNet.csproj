@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -75,6 +79,7 @@
     <Compile Include="Interfaces\IActionValueBinder.cs" />
     <Compile Include="Interfaces\IController.cs" />
     <Compile Include="Interfaces\IValueProvider.cs" />
+    <Compile Include="JsonResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\HttpContextExtensions.cs" />
     <Compile Include="Utilities\TypeHelper.cs" />
@@ -87,6 +92,9 @@
       <Project>{6fce489c-44e9-4a22-800f-88e67904a3c7}</Project>
       <Name>IvyTalk.AspNet.Formatting</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

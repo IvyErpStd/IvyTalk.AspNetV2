@@ -15,7 +15,7 @@ namespace IvyTalk.AspNet.Controllers
         {
         }
      
-        public override bool Execute(HttpResponse response, object result)
+        public override bool Execute(ActionContext context, object result)
         {
             if (ActionDescriptor.ReturnType == typeof(void))
             {
@@ -25,7 +25,7 @@ namespace IvyTalk.AspNet.Controllers
             // TODO: 细分
             // 暂时粗暴
             
-            response.Write(result);
+            context.ControllerContext.Response.Write(result);
             return true;
         }
     }
