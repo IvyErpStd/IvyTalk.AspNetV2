@@ -33,7 +33,7 @@ namespace IvyTalk.AspNet.Utilities
             }
 
             int symbol = value.IndexOf(';');
-            return symbol == -1 ? value : value.Substring(0, symbol + 1);
+            return symbol == -1 ? value : value.Substring(0, symbol);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using IvyTalk.AspNet.Controllers;
+﻿using IvyTalk.AspNet.Binding;
+using IvyTalk.AspNet.Controllers;
 
 namespace IvyTalk.AspNet.Attributes
 {
@@ -6,7 +7,7 @@ namespace IvyTalk.AspNet.Attributes
     {
         public override ParameterBinding GetBinding(ParameterDescriptor descriptor)
         {
-            throw new System.NotImplementedException();
+            return new NameValueParameterBinding(descriptor);
         }
     }
 }

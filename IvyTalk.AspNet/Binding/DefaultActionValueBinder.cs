@@ -25,7 +25,7 @@ namespace IvyTalk.AspNet.Binding
             return binding;
         }
 
-        private ParameterBinding GetParameterBinding(ParameterDescriptor descriptor)
+        private static ParameterBinding GetParameterBinding(ParameterDescriptor descriptor)
         {
             ParameterBindingAttribute attribute = descriptor.ParameterBindingAttribute;
             if (attribute != null)

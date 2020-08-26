@@ -7,7 +7,7 @@ using IvyTalk.AspNet.Interfaces;
 
 namespace IvyTalk.AspNet
 {
-    public class Controller : ControllerBase
+    public class ApiController : ControllerBase
     {
         private ControllerContext _controllerContext;
         
@@ -25,7 +25,7 @@ namespace IvyTalk.AspNet
             Initialize(context);
 
             // TODO: Invoke
-            // actionDescriptor.ActionBinding.InvokeAction(ActionContext);
+            actionDescriptor.ActionBinding.InvokeAction(ActionContext);
         }
 
         protected ActionContext ActionContext { get; private set; }
@@ -53,7 +53,7 @@ namespace IvyTalk.AspNet
         /// </summary>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException">匹配多个 Action</exception>
-        private ActionDescriptor FindAction(ControllerContext context)
+        private static ActionDescriptor FindAction(ControllerContext context)
         {
             if (context is null)
             {
