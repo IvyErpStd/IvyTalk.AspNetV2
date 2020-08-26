@@ -18,6 +18,11 @@ namespace IvyTalk.AspNet.Controllers
         /// </summary>
         public virtual void ExecuteBinding(ActionContext context)
         {
+            if (Parameters is null)
+            {
+                return;
+            }
+
             foreach (var parameter in Parameters)
             {
                 if (!parameter.IsValid)

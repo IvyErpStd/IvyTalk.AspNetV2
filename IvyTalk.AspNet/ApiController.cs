@@ -7,7 +7,7 @@ using IvyTalk.AspNet.Interfaces;
 
 namespace IvyTalk.AspNet
 {
-    public class ApiController : ControllerBase
+    public abstract class ApiController : ControllerBase
     {
         private ControllerContext _controllerContext;
 

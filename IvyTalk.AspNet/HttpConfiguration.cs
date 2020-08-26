@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using IvyTalk.AspNet.Formatting;
+using Newtonsoft.Json;
 
 namespace IvyTalk.AspNet
 {
@@ -18,5 +19,11 @@ namespace IvyTalk.AspNet
         /// 格式化器
         /// </summary>
         public MediaTypeFormatterCollection MediaTypeFormatters { get; }
+
+        /// <summary>
+        /// 序列化/反序列化设置
+        /// </summary>
+        public JsonSerializerSettings JsonSerializerSettings
+            => MediaTypeFormatters?.JsonFormatter?.JsonSerializerSettings;
     }
 }

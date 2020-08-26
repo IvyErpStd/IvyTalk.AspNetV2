@@ -8,8 +8,6 @@ namespace IvyTalk.AspNet
 {
     public abstract class ControllerBase : IController, IHttpHandler, IRequiresSessionState
     {
-        private static readonly HttpConfiguration Configuration = new HttpConfiguration();
-
         protected virtual bool IsReusable => true;
 
         protected HttpContext HttpContext { get; private set; }
@@ -24,7 +22,7 @@ namespace IvyTalk.AspNet
 
             HttpContext = context;
             RouteData routeData = new RouteData(context);
-            ControllerDescriptor descriptor = new ControllerDescriptor(this, Configuration);
+            ControllerDescriptor descriptor = new ControllerDescriptor(this, GlobalConfiguration.Configuration);
             ControllerContext controllerContext = new ControllerContext(this, descriptor, context, routeData);
             Execute(descriptor, controllerContext);
         }

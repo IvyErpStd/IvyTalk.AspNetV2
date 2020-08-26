@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Net.Http.Headers;
 using IvyTalk.AspNet.Formatting.Utilities;
 
@@ -12,6 +13,12 @@ namespace IvyTalk.AspNet.Formatting
             : this(CreateDefaultFormatters())
         {
         }
+
+        /// <summary>
+        /// JSON 格式化
+        /// </summary>
+        public JsonMediaTypeFormatter JsonFormatter 
+            => Items.OfType<JsonMediaTypeFormatter>().FirstOrDefault();
 
         public MediaTypeFormatterCollection(IEnumerable<MediaTypeFormatter> formatters)
         {
@@ -34,7 +41,7 @@ namespace IvyTalk.AspNet.Formatting
                 new JsonMediaTypeFormatter()
             };
         }
-        
+
         /// <summary>
         /// 寻找格式化器
         /// </summary>

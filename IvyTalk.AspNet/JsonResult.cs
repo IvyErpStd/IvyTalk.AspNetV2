@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Text;
 using System.Web;
 using IvyTalk.AspNet.Controllers;
@@ -22,11 +23,30 @@ namespace IvyTalk.AspNet
             HttpResponse response = context.ControllerContext.Response;
             HttpConfiguration configuration = context.ControllerContext.Configuration;
 
-            string result = JsonConvert.SerializeObject(_class);
-
+            JsonSerializer serializer = CreateSerializer(configuration);
+            
             response.ContentType = "application/json";
             response.ContentEncoding = Encoding.UTF8;
-            response.Write(result);
+            using (JsonWriter writer = new JsonTextWriter(response.Output))
+            {
+                serializer.Serialize(writer, _class);
+            }
+        }
+
+        private JsonSerializer CreateSerializer(HttpConfiguration configuration)
+        {
+            if (configuration is null)
+            {
+                throw new ArgumentNullException(nameof(configuration));
+            }
+
+            JsonSerializerSettings settings = configuration.JsonSerializerSettings;
+            if (settings is null)
+            {
+                return JsonSerializer.CreateDefault();
+            }
+
+            return JsonSerializer.Create(configuration.JsonSerializerSettings);
         }
     }
 }

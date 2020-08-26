@@ -28,6 +28,14 @@ namespace IvyTalk.AspNetFramework.Test.Controller
         {
             return Guid.NewGuid();
         }
+        
+        public IActionResult JsonSetting()
+        {
+            return Json(new
+            {
+                DateTime.Now
+            });
+        }
 
 
     }
