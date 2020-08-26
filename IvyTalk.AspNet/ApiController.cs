@@ -10,26 +10,31 @@ namespace IvyTalk.AspNet
     public class ApiController : ControllerBase
     {
         private ControllerContext _controllerContext;
-        
+
         protected override void Execute(ControllerDescriptor descriptor, ControllerContext context)
         {
             ActionDescriptor actionDescriptor =
-                FindAction(context) ?? 
+                FindAction(context) ??
                 throw new HttpWrapperException(HttpStatusCode.NotFound, "NotFound");
-       
+
             ActionContext = new ActionContext
             {
                 Descriptor = actionDescriptor
             };
-            
+
             Initialize(context);
 
-            // TODO: Invoke
-            actionDescriptor.ActionBinding.InvokeAction(ActionContext);
+            ActionInvoker = new DefaultActionInvoker(ActionContext);
+            if (!ActionInvoker.Execute())
+            {
+                throw new HttpWrapperException(HttpStatusCode.NotFound, "Not Found");
+            }
         }
 
+        private ActionInvoker ActionInvoker { get; set; }
+
         protected ActionContext ActionContext { get; private set; }
-        
+
         protected ControllerContext ControllerContext
         {
             get => _controllerContext;

@@ -13,15 +13,20 @@ namespace IvyTalk.AspNet.Controllers
             Parameters = parameter ?? throw new ArgumentNullException(nameof(parameter));
         }
 
-        public virtual void InvokeAction(ActionContext context)
+        /// <summary>
+        /// 执行绑定
+        /// </summary>
+        public virtual void ExecuteBinding(ActionContext context)
         {
-            // TODO: Test
-            foreach (var parameterBinding in Parameters)
+            foreach (var parameter in Parameters)
             {
-                // parameterBinding.IsValid
-                parameterBinding.ExecuteBinding(context);
+                if (!parameter.IsValid)
+                {
+                    throw new ArgumentException(parameter.ErrorMessage);
+                }
+
+                parameter.ExecuteBinding(context);
             }
-            //ActionDescriptor.MethodInfo.Invoke()
         }
     }
 }
