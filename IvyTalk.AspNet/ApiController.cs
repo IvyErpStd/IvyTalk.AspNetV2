@@ -15,7 +15,7 @@ namespace IvyTalk.AspNet
         {
             ActionDescriptor actionDescriptor =
                 FindAction(context) ??
-                throw new HttpWrapperException(HttpStatusCode.NotFound, "NotFound");
+                throw new HttpWrapperException(HttpStatusCode.NotFound, "Not Found");
 
             ActionContext = new ActionContext
             {

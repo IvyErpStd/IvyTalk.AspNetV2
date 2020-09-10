@@ -8,7 +8,7 @@ namespace IvyTalk.AspNet
 {
     public abstract class ControllerBase : IController, IHttpHandler, IRequiresSessionState
     {
-        protected virtual bool IsReusable => true;
+        protected virtual bool IsReusable => false;
 
         protected HttpContext HttpContext { get; private set; }
 
